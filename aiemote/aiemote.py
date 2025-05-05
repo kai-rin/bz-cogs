@@ -16,7 +16,7 @@ from redbot.core.utils.views import SimpleMenu
 
 logger = logging.getLogger("red.bz_cogs.aiemote")
 
-LLM_MODEL = "gpt-4o-mini"
+LLM_MODEL = "grok-3-mini-beta"
 
 class AIEmote(commands.Cog):
     """ Human-like Discord reacts to messages powered by OpenAI. """
@@ -206,7 +206,7 @@ class AIEmote(commands.Cog):
     async def aiemote(self, _):
         """ Totally not glorified sentiment analysis™
 
-            Picks a reaction for a message using gpt-4o-mini
+            Picks a reaction for a message using grok-3-mini-beta
 
             To get started, please add a channel to the whitelist with:
             `[p]aiemote allow <#channel>`

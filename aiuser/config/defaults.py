@@ -47,7 +47,8 @@ DEFAULT_IMAGE_REQUEST_TRIGGER_SECOND_PERSON_WORDS = ["yourself", "you"]
 DEFAULT_REPLY_PERCENT = 0.5
 DEFAULT_MIN_MESSAGE_LENGTH = 2
 DEFAULT_IMAGE_UPLOAD_LIMIT = 10 * (1024 * 1024)  # 10 MB
-DEFAULT_LLM_MODEL = "gpt-4o-mini"
+DEFAULT_LLM_MODEL = "grok-3-mini-beta"
+DEFAULT_IMAGES_SCAN_MODEL = "grok-2-vision-1212"
 
 DEFAULT_GLOBAL = {
             "custom_openai_endpoint": None,
@@ -61,16 +62,16 @@ DEFAULT_GLOBAL = {
 }
 
 DEFAULT_GUILD = {
-    "optin_by_default": False,
+    "optin_by_default": True,
     "optin_disable_embed": False,
     "reply_percent": DEFAULT_REPLY_PERCENT,
     "messages_backread": 10,
     "messages_backread_seconds": 60 * 120,
     "messages_min_length": DEFAULT_MIN_MESSAGE_LENGTH,
     "reply_to_mentions_replies": True,
-    "scan_images": False,
-    "scan_images_mode": ScanImageMode.AI_HORDE.value,
-    "scan_images_model": DEFAULT_LLM_MODEL,
+    "scan_images": True,
+    "scan_images_mode": ScanImageMode.LLM.value,
+    "scan_images_model": DEFAULT_IMAGES_SCAN_MODEL,
     "max_image_size": DEFAULT_IMAGE_UPLOAD_LIMIT,
     "model": DEFAULT_LLM_MODEL,
     "custom_text_prompt": None,
