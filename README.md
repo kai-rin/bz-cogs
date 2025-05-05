@@ -10,7 +10,7 @@ A collection of interesting/niche cogs for Red-Discordbot.
 
 ## Install
 ```
-repo add bz-cogs https://github.com/zhaobenny/bz-cogs
+repo add bz-cogs https://github.com/kai-rin/bz-cogs
 cog install bz-cogs <cog>
 ```
 
