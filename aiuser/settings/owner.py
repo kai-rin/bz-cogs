@@ -10,7 +10,7 @@ from redbot.core.data_manager import cog_data_path
 from redbot.core.utils.menus import start_adding_reactions
 from redbot.core.utils.predicates import ReactionPredicate
 
-from aiuser.config.defaults import DEFAULT_LLM_MODEL
+from aiuser.config.defaults import DEFAULT_LLM_MODEL, DEFAULT_IMAGES_SCAN_MODEL
 from aiuser.core.openai_utils import setup_openai_client
 from aiuser.settings.utilities import get_tokens, truncate_prompt
 from aiuser.types.abc import MixinMeta
@@ -80,7 +80,7 @@ class OwnerSettings(MixinMeta):
         self.openai_client = await setup_openai_client(self.bot, self.config)
 
         chat_model = DEFAULT_LLM_MODEL
-        image_model = DEFAULT_LLM_MODEL
+        image_model = DEFAULT_IMAGES_SCAN_MODEL
 
         if (is_using_openrouter_endpoint(self.openai_client)):
             chat_model = "openai/gpt-4o-mini"
