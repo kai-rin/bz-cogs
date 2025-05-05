@@ -44,8 +44,16 @@ class LLMPipeline:
             weights = await self.config.guild(self.ctx.guild).weights()
             kwargs["logit_bias"] = json.loads(weights or "{}")
 
-        if kwargs.get("logit_bias") and self.model in VISION_SUPPORTED_MODELS or self.model in UNSUPPORTED_LOGIT_BIAS_MODELS:
-            logger.warning(f"logit_bias is not supported for model {self.model}, removing...")
+        # logit_biasがサポートされていないエンドポイントやモデルの場合は除外
+        if (
+            kwargs.get("logit_bias")
+            and (
+                self.model in VISION_SUPPORTED_MODELS
+                or self.model in UNSUPPORTED_LOGIT_BIAS_MODELS
+                or (self.openai_client.base_url and "x.ai" in self.openai_client.base_url)
+            )
+        ):
+            logger.warning(f"logit_bias is not supported for model/endpoint {self.model}, removing...")
             del kwargs["logit_bias"]
 
         return kwargs
